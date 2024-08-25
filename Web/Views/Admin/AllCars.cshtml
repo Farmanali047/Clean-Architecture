@@ -1,0 +1,84 @@
+﻿@model Core.Entites.CarData
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<html>
+<head>
+
+
+    <style>
+        table thead th {
+            border: 1px solid white;
+        }
+
+        table tbody td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>
+        @Model.data
+    </h3>
+    <div class="container h1 display-5  text-light text-center px-2  shadow mt-5 " style="background-color:#2C7865">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center "> List Of Total Cars</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <table class="table table-striped table-hover ">
+            <thead class=" table-dark">
+
+            <th>
+                Id
+            </th>
+            <th>
+                CarName
+            </th>
+            <th>
+                CarColor
+            </th>
+            <th>
+                CarModel
+            </th>
+            <th>
+                Registeration Number
+            </th>
+            <th>
+                Rental
+            </th>
+            <th>
+                Action
+            </th>
+
+            </thead>
+            <tbody class=" border border-dark">
+                @foreach (var car in Model.registrations)
+                {
+                    <tr>
+                        <td>@car.Id</td>
+                        <td>@car.CarName</td>
+                        <td>@car.CarColor</td>
+                        <td>@car.CarModel</td>
+                        <td>@car.RegisterationNumber</td>
+                        <td>@car.Rental</td>
+
+                        <td>
+                            <a asp-action="UpdateRental" asp-route-id="@car.Id" class="btn btn-warning">Edit</a>
+
+                            <a asp-action="Delete" asp-route-id="@car.Id" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>

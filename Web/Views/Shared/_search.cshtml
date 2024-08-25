@@ -1,0 +1,55 @@
+﻿@model List<Core.Entites.Bookingform>
+
+@{
+    Layout = null;
+}
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>PersonName</th>
+                    <th>CarName</th>
+                    <th>Cnic</th>
+                    <th>PhoneNumber</th>
+                    <th>Email</th>
+                    <th>CarPlateNumber</th>
+                    <th>CarColor</th>
+                    <th>PickupLocation</th>
+                    <th>PickUpDate</th>
+                    <th>ReturnDate</th>
+                    <th>SomeInformation</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody class="border border-dark">
+                @foreach (var booking in Model)
+                {
+                    <tr>
+                <td class ="truncate-text">@booking.PersonName</td>
+                <td class="truncate-text">@booking.CarName</td>
+                <td class="truncate-text">@booking.Cnic</td>
+                <td class="truncate-text">@booking.PhoneNumber</td>
+                <td class="truncate-text">@booking.Email</td>
+                <td class="truncate-text">@booking.CarPlateNumber</td>
+                <td class ="truncate-text">@booking.CarColor</td>
+                <td class="truncate-text">@booking.PickupLocation</td>
+                <td class="truncate-text">@booking.PickUpDate</td>
+                <td class="truncate-text">@booking.ReturnDate</td>
+                <td class="truncate-text">@booking.SomeInformation</td>
+                        <td>
+                            @if (booking.Status == "Accepted")
+                            {
+                                <span class="fs-1 text-success" style="font-size: 3rem;">✔</span>
+                            }
+                            else
+                            {
+                                <form action="~/Admin/Accept/@booking.Id" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-warning">Accept</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+       

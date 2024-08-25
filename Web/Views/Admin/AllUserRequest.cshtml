@@ -1,0 +1,120 @@
+﻿<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<html>
+
+<head>
+    <div class="container h1 display-5 text-center px-2 text-light shadow mt-5" style="background-color:#2C7865">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center ms-4"> List of User Booking Cars Request</h2>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        table thead th {
+            border: 1px solid white;
+            font-size: 14px; /* Decrease font size of heading */
+        }
+
+        table tbody td {
+            border: 1px solid black;
+            font-size: 12px; /* Decrease font size of content */
+        }
+
+        .scrollable-table-container {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .input-group {
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto; /* Align to the right */
+        }
+
+        .truncate-text {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+            vertical-align: middle;
+            word-wrap: break-word;
+            width: 150px; /* Decrease the width of each cell */
+        }
+
+        .scrollable-table-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+
+            /* Add scroll bar at the bottom of the table */
+            .scrollable-table-container::-webkit-scrollbar {
+                height: 8px;
+            }
+
+            .scrollable-table-container::-webkit-scrollbar-thumb {
+                background-color: #2C7865;
+                border-radius: 4px;
+            }
+
+        /* Enhance the search button */
+        #search {
+            background-color: #2C7865;
+            width: 50px;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 0 5px 5px 0; /* Rounded corners for right side */
+        }
+
+            #search:hover {
+                background-color: #1F5647;
+                transform: scale(1.05);
+            }
+
+            #search:active {
+                background-color: #174033;
+                transform: scale(0.95);
+            }
+
+        /* Search input styling */
+        #name {
+            border-radius: 5px 0 0 5px; /* Rounded corners for left side */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container my-5">
+        <div class="container mb-4 d-flex justify-content-end">
+            <div class="input-group shadow">
+                <input type="search" id="name" class="form-control" name="name" placeholder="Search..." aria-label="Search">
+                <button class="btn text-white" id="search">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="list" class="scrollable-table-container">
+        <partial name="_search" model="Model" />
+    </div>
+
+    <div class="d-flex justify-content-center">
+        @Html.ActionLink("Back to Home", "Admin", "Admin", null, new { @class = "btn mb-5 px-5 py-3 mt-2 bg-info rounded-3 text-light fa fa-arrow-left me-2" })
+    </div>
+
+</body>
+
+</html>

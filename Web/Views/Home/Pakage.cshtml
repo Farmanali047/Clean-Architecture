@@ -1,0 +1,56 @@
+﻿@model List<Core.Entites.Pakage>
+@{
+    ViewData["Title"] = "Pakage Page";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .package-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .package-title {
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+    .package-description {
+        margin-top: 10px;
+    }
+
+    .package-price {
+        font-size: 20px;
+        color: #28a745;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        @foreach (var v in Model)
+        {
+            <div class="col-md-4 mt-4 pt-4">
+                <div class="package-card">
+                <h2 class="package-title">@v.Heading</h2>
+                <p class="package-description">@v.Description</p>
+                <p class="package-price">$@v.Price</p>
+                <a href="@Url.Action("Totalcars", "Home")" class="btn btn-primary">Book Now </a>
+            </div>
+        </div>
+        }
+       
+    </div>
+</div>

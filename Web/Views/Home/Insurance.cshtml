@@ -1,0 +1,86 @@
+﻿@model List<Core.Entites.Insurance>
+
+
+@{
+    ViewData["Title"] = "Insurance Page";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .insurance-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .insurance-title {
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+    .insurance-description {
+        margin-top: 10px;
+    }
+
+    .insurance-price {
+        font-size: 20px;
+        color: #28a745;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .insurance-coverage {
+        margin-top: 10px;
+    }
+
+    .insurance-features {
+        margin-top: 10px;
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+        .insurance-features li {
+            margin-bottom: 5px;
+        }
+
+    .btn-buy {
+        margin-top: 10px;
+    }
+</style>
+
+    <div class="container">
+        <div class="row">
+        @foreach (var v in Model)
+        {
+            <div class="col-md-4 mt-4 pt-4">
+
+            
+                <div class="insurance-card">
+                    <h2 class="insurance-title">@v.Heading</h2>
+                    <p class="insurance-description">@v.Title</p>
+                    <p class="insurance-price">Price: $@v.Price</p>
+                    <p class="insurance-coverage">Coverage: $@v.Coverage</p>
+                    <ul class="insurance-features">
+                        <p>
+                        <li>@v.Description</li></p>
+                    </ul>
+                </div>
+            
+            
+            </div>
+          }
+
+    </div>
+</div>
+
+          

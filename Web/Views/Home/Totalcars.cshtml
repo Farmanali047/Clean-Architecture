@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Bookingform Page";
+}
+@model List<Core.Entites.CarRegisteration>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+    }
+
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .car-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .car-image {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .car-title {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .car-info {
+        margin-top: 10px;
+    }
+
+    .btn-rent {
+        margin-top: 10px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        @foreach (var v in Model)
+        {
+            <div class="col-md-4 mt-4 pt-4">
+                <div class="car-card d-flex flex-column justify-content-between">
+                    <div>
+                        <img src="@v.ImgUrl" alt="Car 1" class="car-image">
+                        <h2 class="car-title"> @v.CarName</h2>
+                        <p class="car-info">Color: @v.CarColor</p>
+                        <p class="car-info">Year: @v.CarModel</p>
+                        <p class="car-info">Price: @v.Rental</p>
+                        
+                    </div>
+                    <div class="text-center">
+                        <a href="/User/Bookingform?car=@v.CarName &plate=@v.RegisterationNumber &color=@v.CarColor" class="btn text-light btn-rent" style="background-color:#2C7865">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+<script src="~/lib/signalr/dist/browser/signalr.js">
+    
+</script>
+<script src="~/js/RealTimeMessage.js">
+ </script>
