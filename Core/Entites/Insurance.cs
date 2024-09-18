@@ -14,6 +14,7 @@ namespace Core.Entites
         public decimal Price { get; set; }
         public decimal Coverage { get; set; }
         public string Description { get; set; }
+        public int Id { get; set; }
 
 
     }
